@@ -24,16 +24,16 @@ $("button").click(function(){
     $("a").hide();
     var txt = $("textarea").val();
     var rows = txt.split("\n");
-    var result = "Name;Rows;Cols;Diameter\n" +
-        $("input[name=name]").val() + ";" + 
-        rows.length + ";" + 
-        rows[0].split("\t").length + ";" + 
+    var result = "Name, Rows, Cols, Diameter\n" +
+        $("input[name=name]").val() + "," + 
+        rows.length + "," + 
+        rows[0].split("\t").length + "," + 
         $("input[name=diameter]").val() + "\n" +
-        "R;C;ID;;\n";
+        "R,C,ID,\n";
     $.each(rows, function(rowIndex, row){
         var cols = row.split("\t");
         $.each(cols, function(colIndex, col){
-            result += (rowIndex + 1 ) + ";" + (colIndex + 1 ) + ";" + col + "\n";
+            result += (rowIndex + 1 ) + "," + (colIndex + 1 ) + "," + col + "\n";
         });
     });
     result = encodeURIComponent(result);
